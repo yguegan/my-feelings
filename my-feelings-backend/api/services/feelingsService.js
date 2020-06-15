@@ -9,14 +9,21 @@ exports.getFeelings = function() {
 };
 
 exports.getStatistics = function() {
-    const mapStatistics = new Map();
+    const statistics = {};
+
+    totalFeelings = feelings.length;
+
     feelings.forEach(feeling => {
-        if(mapStatistics.get(feeling.selectedMood)) {
-            mapStatistics.set(feeling.selectedMood, mapStatistics.get(feeling.selectedMood)+1);
+        if(statistics[feeling.selectedMood]) {
+            statistics[feeling.selectedMood].numberOfFeelings += 1;
+            statistics[feeling.selectedMood].percentageOfFeelings = (statistics[feeling.selectedMood].numberOfFeelings*100)/totalFeelings;
         }
         else {
-            mapStatistics.set(feeling.selectedMood, 1);
+            statistics[feeling.selectedMood] = {
+                numberOfFeelings: 1,
+                percentageOfFeelings: 100/totalFeelings
+            };
         }
     });
-    return mapStatistics;
+    return statistics;
 }

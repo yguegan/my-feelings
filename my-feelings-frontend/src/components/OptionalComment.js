@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button, Form } from 'react-bootstrap';
 
-const OptionalComment = ({ setForm, formData, navigation }) => {
+const OptionalComment = ({ setForm, formData, navigation, onSubmit }) => {
     const { go } = navigation;
       
     return (
@@ -17,7 +17,7 @@ const OptionalComment = ({ setForm, formData, navigation }) => {
                         <Form.Control as="textarea" rows="3" name="additionalComment" onChange={setForm}/>
                     </Form.Group>
                 </Form>
-                <Button variant="success" size="sm" onClick={() => go("Submit")}>Finish</Button>
+                <Button variant="success" size="sm" onClick={() => onSubmit()}>Finish</Button>
             </section>
         </div>       
     );

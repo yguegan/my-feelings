@@ -17,7 +17,7 @@ exports.getFeelings = function(req, res) {
 
   const response = {
     feelings: feelings,
-    statistic: JSON.stringify([...feelingsStatistic])
+    statistic: feelingsStatistic
   };
 
   res.header("Access-Control-Allow-Origin", "*");

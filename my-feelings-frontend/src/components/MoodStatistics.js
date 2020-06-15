@@ -10,21 +10,7 @@ const MoodStatistics = ({statistic}) => {
         )
     }
 
-    const parsedStatistic = JSON.parse(statistic);
-
     const CanvasJSChart = CanvasJSReact.CanvasJSChart;
-
-    const statisticMap = new Map();
-    let totalFeelings = 0;
-
-    for (let i = 0; i < parsedStatistic.length; i++) {
-        statisticMap.set(parsedStatistic[i][0], parsedStatistic[i][1]);
-        totalFeelings += parsedStatistic[i][1];
-    };
-
-    const calculatePercentage = (value=0, total) => {
-        return (value*100.0)/total;
-    };
 
     const options = {
         animationEnabled: false,
@@ -34,13 +20,13 @@ const MoodStatistics = ({statistic}) => {
             indexLabel: "{name}: {y}",
             yValueFormatString: "#,###'%'",
             dataPoints: [
-                { name: "Very bad mood", y: calculatePercentage(statisticMap.get("1"), totalFeelings) },
-                { name: "Bad mood", y: calculatePercentage(statisticMap.get("2"), totalFeelings) },
-                { name: "Not too bad mood", y: calculatePercentage(statisticMap.get("3"), totalFeelings) },
-                { name: "So so mood", y: calculatePercentage(statisticMap.get("4"), totalFeelings) },
-                { name: "Good mood", y: calculatePercentage(statisticMap.get("5"), totalFeelings) },
-                { name: "Great mood", y: calculatePercentage(statisticMap.get("6"), totalFeelings) },
-                { name: "Excellent mood", y: calculatePercentage(statisticMap.get("7"), totalFeelings) }
+                { name: "Very bad mood", y: statistic[1] ? statistic[1].percentageOfFeelings : 0 },
+                { name: "Bad mood", y: statistic[2] ? statistic[2].percentageOfFeelings : 0 },
+                { name: "Not too bad mood",y: statistic[3] ? statistic[3].percentageOfFeelings : 0 },
+                { name: "So so mood", y: statistic[4] ? statistic[4].percentageOfFeelings : 0 },
+                { name: "Good mood", y: statistic[5] ? statistic[5].percentageOfFeelings : 0 },
+                { name: "Great mood", y: statistic[6] ? statistic[6].percentageOfFeelings : 0 },
+                { name: "Excellent mood", y: statistic[7] ? statistic[7].percentageOfFeelings : 0 }
             ]
         }]
     }
