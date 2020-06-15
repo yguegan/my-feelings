@@ -5,7 +5,7 @@ import { Form, Button, ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
 const FeelingChoice = ({ setValue, navigation }) => {
     const { next } = navigation;
 
-    const handleOptionChange = (value, event) => {
+    const handleOptionChange = (value) => {
         //Need to create this adapted target due to a restriction in the library for the checkbox element (taking only true/false instead of the array of values)
         const adaptedEventTarget = {
             name: "selectedFeelings",

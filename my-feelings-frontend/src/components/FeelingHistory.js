@@ -5,7 +5,6 @@ import { Table } from 'react-bootstrap';
 
 const FeelingHistory = ({feelings}) => {
     if(feelings === undefined) {
-        console.log("empty");
         return (<span>Loading...</span>)
     }
     else {
