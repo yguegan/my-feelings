@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Badge } from 'react-bootstrap';
 
-const Feeling = ({feeling}) => {
+const FeelingView = ({feeling}) => {
     let smileyElement;
     switch(feeling.selectedMood) {
         case '1':
@@ -49,4 +49,4 @@ const Feeling = ({feeling}) => {
     );
 }
 
-export default Feeling;
+export default FeelingView;

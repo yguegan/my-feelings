@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Feeling from './Feeling'
+import FeelingView from './FeelingView'
 import { Table } from 'react-bootstrap';
 
 const FeelingHistory = ({feelings}) => {
@@ -22,7 +22,7 @@ const FeelingHistory = ({feelings}) => {
                 {
                     feelings.map((feeling, index) => {
                         return (
-                            <Feeling key={index} feeling={feeling} />     
+                            <FeelingView key={index} feeling={feeling} />     
                         );
                     })
                 }

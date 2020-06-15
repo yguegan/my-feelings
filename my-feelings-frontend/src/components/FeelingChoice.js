@@ -2,18 +2,19 @@ import React from 'react';
 
 import { Form, Button, ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
 
-const FeelingChoice = ({ formData, navigation }) => {
-    const {selectedFeelings} = formData;
+const FeelingChoice = ({ setValue, navigation }) => {
     const { next } = navigation;
 
-    const handleOptionChange = (changeEvent) => {
-        if(changeEvent.target.checked && (selectedFeelings.indexOf(changeEvent.target.value) < 0)) {
-            selectedFeelings.push(changeEvent.target.value);
+    const handleOptionChange = (value, event) => {
+        //Need to create this adapted target due to a restriction in the library for the checkbox element (taking only true/false instead of the array of values)
+        const adaptedEventTarget = {
+            name: "selectedFeelings",
+            value: value
         }
-        else if (!changeEvent.target.checked){
-            selectedFeelings.splice(selectedFeelings.indexOf(changeEvent.target.value), 1);
-        }
-    };
+        setValue({
+            target: adaptedEventTarget
+        });
+    }
       
     return (
         <div>
@@ -23,12 +24,11 @@ const FeelingChoice = ({ formData, navigation }) => {
             <section>
                 <Form>
                     <Form.Group>
-                        <ToggleButtonGroup type="checkbox" name="feelingChoice">
+                        <ToggleButtonGroup type="checkbox" name="selectedFeelings" onChange={handleOptionChange}>
                             <ToggleButton
                             type="checkbox"
                             variant="outline-dark"
                             value="Depressed"
-                            onChange={handleOptionChange}
                             >
                             Depressed
                             </ToggleButton>
@@ -37,7 +37,6 @@ const FeelingChoice = ({ formData, navigation }) => {
                             type="checkbox"
                             variant="outline-dark"
                             value="Optimistic"
-                            onChange={handleOptionChange}
                             >
                             Optimistic
                             </ToggleButton>
@@ -46,7 +45,6 @@ const FeelingChoice = ({ formData, navigation }) => {
                             type="checkbox"
                             variant="outline-dark"
                             value="Bored"
-                            onChange={handleOptionChange}
                             >
                             Bored
                             </ToggleButton>
@@ -55,7 +53,6 @@ const FeelingChoice = ({ formData, navigation }) => {
                             type="checkbox"
                             variant="outline-dark"
                             value="Happy"
-                            onChange={handleOptionChange}
                             >
                             Happy
                             </ToggleButton>

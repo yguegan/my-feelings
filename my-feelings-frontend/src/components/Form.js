@@ -4,7 +4,7 @@ import { useForm, useStep } from "react-hooks-helper";
 import MoodChoice from "./MoodChoice";
 import FeelingChoice from "./FeelingChoice";
 import OptionalComment from "./OptionalComment";
-import Submit from "./Submit";
+import Summary from "./Summary";
 
 import FeelingModel from "../model/FeelingModel"
 
@@ -22,7 +22,7 @@ const steps = [
 const defaultData = new FeelingModel();
 
 const Form = () => {
-  const [formData, setForm] = useForm(defaultData);
+  const [formData, setValue] = useForm(defaultData);
   const { step, navigation } = useStep({ initialStep: 0, steps });
   const { id } = step;
   const eventService = new EventService()
@@ -36,7 +36,7 @@ const Form = () => {
     })
   }
 
-  const props = { formData, setForm, navigation, onSubmit };
+  const props = { formData, setValue, navigation, onSubmit };
 
   switch (id) {
     case "Mood":
@@ -46,9 +46,9 @@ const Form = () => {
     case "AdditionalInformations":
       return <OptionalComment {...props} />;
     case "Success":
-        return <Submit success={true} {...props} />;
+        return <Summary success={true} {...props} />;
     case "Failure":
-        return <Submit success={false} {...props} />;
+        return <Summary success={false} {...props} />;
     default:
       return null;
   }

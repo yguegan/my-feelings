@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Form, Button, ButtonGroup, ToggleButton } from 'react-bootstrap';
 
-const MoodChoice = ({ setForm, navigation }) => {
+const MoodChoice = ({ setValue, navigation }) => {
     const { next } = navigation;
   
     return (
@@ -21,7 +21,7 @@ const MoodChoice = ({ setForm, navigation }) => {
                                 size="lg"
                                 name="selectedMood"
                                 value="1"
-                                onChange={setForm}
+                                onChange={setValue}
                             >
                                 <span role="img" aria-label="Very bad">&#128543;</span>
                             </ToggleButton>
@@ -33,7 +33,7 @@ const MoodChoice = ({ setForm, navigation }) => {
                                 size="lg"
                                 name="selectedMood"
                                 value="2"
-                                onChange={setForm}
+                                onChange={setValue}
                             >
                                 <span role="img" aria-label="Bad">&#128530;</span>
                             </ToggleButton>
@@ -45,7 +45,7 @@ const MoodChoice = ({ setForm, navigation }) => {
                                 size="lg"
                                 name="selectedMood"
                                 value="3"
-                                onChange={setForm}
+                                onChange={setValue}
                             >
                                 <span role="img" aria-label="Not too bad">&#128533;</span>
                             </ToggleButton>
@@ -57,7 +57,7 @@ const MoodChoice = ({ setForm, navigation }) => {
                                 size="lg"
                                 name="selectedMood"
                                 value="4"
-                                onChange={setForm}
+                                onChange={setValue}
                             >
                                 <span role="img" aria-label="So so">&#128528;</span>
                             </ToggleButton>
@@ -69,7 +69,7 @@ const MoodChoice = ({ setForm, navigation }) => {
                                 size="lg"
                                 name="selectedMood"
                                 value="5"
-                                onChange={setForm}
+                                onChange={setValue}
                             >
                                 <span role="img" aria-label="Good">&#128527;</span>
                             </ToggleButton>
@@ -81,7 +81,7 @@ const MoodChoice = ({ setForm, navigation }) => {
                                 size="lg"
                                 name="selectedMood"
                                 value="6"
-                                onChange={setForm}
+                                onChange={setValue}
                             >
                                 <span role="img" aria-label="Great">&#128512;</span>
                             </ToggleButton>
@@ -93,7 +93,7 @@ const MoodChoice = ({ setForm, navigation }) => {
                                 size="lg"
                                 name="selectedMood"
                                 value="7"
-                                onChange={setForm}
+                                onChange={setValue}
                             >
                                 <span role="img" aria-label="Excellent">&#128513;</span>
                             </ToggleButton>

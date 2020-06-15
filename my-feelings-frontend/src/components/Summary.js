@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button, Alert } from 'react-bootstrap';
 
-const Submit = ({ success, setForm, formData, navigation, onSubmit }) => {
+const Summary = ({ success, setForm, formData, navigation, onSubmit }) => {
     const { go } = navigation;
 
     if(success) {
@@ -32,4 +32,4 @@ const Submit = ({ success, setForm, formData, navigation, onSubmit }) => {
    
 }
 
-export default Submit;
+export default Summary;
